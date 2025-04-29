@@ -16,6 +16,7 @@ Downloading ClustalW:
 	downloaded: clustalw-2.1-macosx.dmg
 	conda install -c bioconda clustalw
 Alignment: 
-	I aligned my combined.fasta with Clustal W 
+	I aligned my combined.fasta with Clustal W.
 	clustalw -ALIGN -INFILE=combined.fasta -OUTFILE=octopediae-aligned.fasta -OUTPUT=FASTA 
+	Edited octopediae-aligned.fasta to include species names instead of GenBank identification 	numbers as sequence headers.
 
