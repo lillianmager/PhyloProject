@@ -32,3 +32,13 @@ Distance-based Methods:
 	tre <- ladderize(tre)
 	plot(tre, cex=.6)
 	title("NJ tree of Octopediae rhodopsin gene")
+Parsimony-based Method: 
+  I created a maximum parsimony tree using the R software alongside RStudio.
+	library(ape)
+	library(adegenet)
+	library(phangorn)
+	Dan <- fasta2DNAbin(file="/Users/lillymager/Desktop/PhyloProject/PhyloSequences/octopediae-aligned.fasta")
+	dna2 <- as.phyDat(dna)
+	tre.ini <- nj(dist.dna(dna,model="raw"))
+	plot(tre.pars, cex=0.6)
+	title("Parsimony Tree")
