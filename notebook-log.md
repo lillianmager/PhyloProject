@@ -26,7 +26,7 @@ Distance-based Methods:
 	library(ape)
 	library(adegenet)
 	library(phangorn)
-	Dan <- fasta2DNAbin(file="/Users/lillymager/Desktop/PhyloProject/PhyloSequences/octopediae-aligned.fasta")
+	dna <- fasta2DNAbin(file="/Users/lillymager/Desktop/PhyloProject/PhyloSequences/octopediae-aligned.fasta")
 	D <- dist.dna(dna, model="TN93")
 	tre <- nj(D)
 	tre <- ladderize(tre)
@@ -37,8 +37,22 @@ Parsimony-based Method:
 	library(ape)
 	library(adegenet)
 	library(phangorn)
-	Dan <- fasta2DNAbin(file="/Users/lillymager/Desktop/PhyloProject/PhyloSequences/octopediae-aligned.fasta")
+	dna <- fasta2DNAbin(file="/Users/lillymager/Desktop/PhyloProject/PhyloSequences/octopediae-aligned.fasta")
 	dna2 <- as.phyDat(dna)
 	tre.ini <- nj(dist.dna(dna,model="raw"))
 	plot(tre.pars, cex=0.6)
 	title("Parsimony Tree")
+Maximum Likelihood: 
+  I created a maximum likelihood tree of my data using the IQtree software with bootstrapping, and then plotted the tree using the R software alongside RStudio
+	downloaded: iqtree-3.0.0-macOS-arm
+	cd iqtree-3.0.0-macOS-arm 	
+	ls
+	cd bin
+	./iqtree3 -s /Users/lillymager/Desktop/PhyloProject/PhyloSequences/octopediae-aligned.fasta -bb 1000 -alrt 1000
+
+	library(ape)
+	setwd("~/Desktop/PhyloProject/PhyloSequences")
+	tree <- read.tree("octopediae-aligned.fasta.contree")
+	plot(tree)
+	nodelabels(tree$node.label, frame= "none", cex= 0.8)
+	title("Bootstrapped ML tree")
