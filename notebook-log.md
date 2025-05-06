@@ -32,8 +32,8 @@ DISTANCE-BASED METHOD:
 	D <- dist.dna(dna, model="TN93")
 	tre <- nj(D)
 	tre <- ladderize(tre)
-	plot(tre, cex=.6)
-	title("NJ tree of octopodidae rhodopsin gene")
+	plot(tre, cex=.8)
+	title("Neighbor-Joining tree of octopodidae rhodopsin gene")
 
 PARSIMONY-BASED METHOD: 
   I created a maximum parsimony tree using the R software alongside RStudio, which determines how much character change is needed to explain the rhodopsin gene data. Through lecture and the class website, I know that one weakness of this parsimony method is that it has been shown to produce inconsistent trees. However it also has many strengths, including the fact that it does not rely on models of evolution, it includes the minimum amount of evolutionary change required in the tree, and it is a useful method to use when computational limitations interfere with model-based methods. Parsimony based methods assume that there is independence among characters. This software requires the user to input the aligned sequence data in order to start the process. 
@@ -59,4 +59,4 @@ MAXIMUM LIKELIHOOD:
 	tree <- read.tree("octopodidae-aligned.fasta.contree")
 	plot(tree)
 	nodelabels(tree$node.label, frame= "none", cex= 0.8)
-	title("Bootstrapped ML tree")
+	title("Maximum-likelihood tree of Octopodidae rhodopsin gene")
