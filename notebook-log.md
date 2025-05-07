@@ -14,6 +14,32 @@ COMBINING DATA:
 	ls *.fasta 
 	cat *.fasta > combined.fasta
 
+REQUIRED SOFTWARE AND PACKAGES:
+  In order to reproduce this phylogenetic analysis, ensure the following software and packages are installed. 
+  1. ClustalW: 
+     I) used for multiple sequence alignment 
+     II) any version supporting command-line usage is acceptable 
+
+	from this link: http://www.clustal.org/clustal2/#Download , download: clustalw-2.1-macosx.dmg
+	from this link: https://www.anaconda.com/download/success , download anaconda	
+	from this link: https://anaconda.org/anaconda/conda , download conda package
+	to install ClustalW: conda install -c bioconda clustalw
+
+  2. R and R Packages: 
+     I) used for distance and parsimony methods 
+     II) RStudio is recommended for download as well
+
+	from this link: https://www.r-project.org/ , download: R-4.4.2-arm64.pkg
+	from this link: https://posit.co/downloads/ , download: RStudio-2024.12.1-563.dmg
+	to install packages: 
+		install.packages("adegenet", dep=TRUE)
+		install.packages("phangorn", dep=TRUE)
+  3. IQ-Tree:
+     I) used for maximum likelihood tree construction with bootstrap support
+     II) Version: IQ-Tree 3
+	
+	from this link: https://iqtree.github.io/#download , download iqtree-3.0.0-macOS-arm
+	 
 ALIGNMENT:
   I aligned my combined.fasta with Clustal W, an efficient and commonly used method for multiple sequence alignment for further phylogenetic analysis. Through reading the article "CLUSTAL W: improving the sensitivity of progressive multiple sequence alignment through sequence weighting, position-specific gap penalties and weight matrix choice" (https://pmc.ncbi.nlm.nih.gov/articles/PMC308517/), the strengths of this software are that it introduces sequence weighting, position-specific gap penalties, dynamic weight matrices, and uses Neighbor-Joining tree building to improve alignment accuracy. The limitations of ClustalW include: the local minimum problem, errors that occur early in alignment may not be fixed, and it assumes global alignment. The main assumptions of this software include the idea that weight matrices are different at different evolutionary distances, that the optimal range of gap penalties narrows as sequences diverge, and that gaps in protein sequences do not happen with equal chance. Per dataset being aligned, ClustalW requires the user to input one weight matrix and two gap penalties. 
 	downloaded: clustalw-2.1-macosx.dmg
